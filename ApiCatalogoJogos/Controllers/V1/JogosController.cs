@@ -23,6 +23,17 @@ namespace ApiCatalogoJogos.Controllers.V1
             _jogoService = jogoService;
         }
 
+        /// <summary>
+        /// Buscar todos os jogos de forma paginada
+        /// </summary>
+        /// <remarks>
+        /// Não é possivel retornar os jogos sem paginação
+        /// </remarks>
+        /// <param name="pagina">Indica qual pagina está sendo consultada, mínimo 1</param>
+        /// <param name="quantidade">Indica a quantidade de registros por pagina, mínimo 1 e máximo 50</param>
+        /// <response code="200">Retorna a lista de jogos</response>
+        /// <response code="204">Caso não houver jogos cadastrados</response>
+        
         [HttpGet]
         public async Task<ActionResult<IEnumerable<JogoViewModel>>> Obter([FromQuery, Range(1, int.MaxValue)] int pagina = 1, [FromQuery, Range(1, 50)] int quantidade =5)
         {
@@ -34,6 +45,12 @@ namespace ApiCatalogoJogos.Controllers.V1
             return Ok(jogos);
         }
 
+        /// <summary>
+        /// Buscar um jogo por seu Id
+        /// </summary>
+        /// <param name="idJogo">Id do jogo a ser buscado</param>
+        /// <response code="200">Retorna o jogo filtrado</response>
+        /// <response code="204">Caso não houver jogos cadastrados</response>
         [HttpGet("{idJogo:guid}")]
         public async Task<ActionResult<JogoViewModel>> Obter([FromRoute] Guid idJogo)
         {
@@ -45,6 +62,12 @@ namespace ApiCatalogoJogos.Controllers.V1
             return Ok(jogo);
         }
 
+        /// <summary>
+        /// Cadastra um novo jogo
+        /// </summary>
+        /// <param name="jogoInputModel">Dados necessarios do jogo a ser cadastrado</param>
+        /// <response code="200">Jogo cadastrado</response>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult<JogoViewModel>> InserirJogo([FromBody]JogoInputModel jogoInputModel)
         {
@@ -59,6 +82,13 @@ namespace ApiCatalogoJogos.Controllers.V1
             }
         }
 
+        /// <summary>
+        /// Faz a alteração do jogo encontrado pelo Id
+        /// </summary>
+        /// <param name="idJogo">Id do jogo a ser alterado</param>
+        /// <param name="jogoInputModel">Busca o modelo de dados a serem alterados</param>
+        /// <response code="200">Atualiza o cadastro do jogo</response>
+        /// <response code="204">Caso não tiver jogo cadastrado com este Id</response>
         [HttpPut("{idJogo:guid}")]
         public async Task<ActionResult> AtualizarJogo([FromRoute]Guid idJogo, [FromBody] JogoInputModel jogoInputModel)
         {
@@ -73,6 +103,12 @@ namespace ApiCatalogoJogos.Controllers.V1
             }
         }
 
+        /// <summary>
+        /// Faz a alteração apenas no preço do jogo
+        /// </summary>
+        /// <param name="idJogo">Id do jogo a ser alterado</param>
+        /// <param name="preco">Preço do jogo</param>
+        /// <response code="200">Preço é alterado com sucesso</response>
         [HttpPatch("{idJogo:guid}/preco/{preco:double}")]
         public async Task<ActionResult> AtualizarJogo([FromRoute] Guid idJogo, [FromRoute] double preco)
         {
@@ -87,6 +123,11 @@ namespace ApiCatalogoJogos.Controllers.V1
             }
         }
 
+        /// <summary>
+        /// Deleta o registro do jogo
+        /// </summary>
+        /// <param name="idJogo">Id do jogo a ser deletado</param>
+        /// <response code="200">Jogo deletado com sucesso</response>
         [HttpDelete("{idJogo:guid}")]
         public async Task<ActionResult> ApagarJogo([FromRoute] Guid idJogo)
         {

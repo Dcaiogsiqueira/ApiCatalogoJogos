@@ -40,3 +40,4 @@ C:\Users\Caio\Documents\MeusProjetos\catalogojogos\ApiCatalogoJogos\ApiCatalogoJ
 C:\Users\Caio\Documents\MeusProjetos\catalogojogos\ApiCatalogoJogos\ApiCatalogoJogos\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\Caio\Documents\MeusProjetos\catalogojogos\ApiCatalogoJogos\ApiCatalogoJogos\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\Caio\Documents\MeusProjetos\catalogojogos\ApiCatalogoJogos\ApiCatalogoJogos\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Caio\Documents\MeusProjetos\catalogojogos\ApiCatalogoJogos\ApiCatalogoJogos\bin\Debug\net5.0\ApiCatalogoJogos.xml

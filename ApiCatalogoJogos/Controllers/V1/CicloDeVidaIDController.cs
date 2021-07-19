@@ -31,6 +31,7 @@ namespace ApiCatalogoJogos.Controllers.V1
             _exemploSingleton1 = exemploSingleton1;
             _exemploSingleton2 = exemploSingleton2;
             _exemploScoped1 = exemploScoped1;
+            _exemploScoped2 = exemploScoped2;
             _exemploTransient1 = exemploTransient1;
             _exemploTransient2 = exemploTransient2;
         }
@@ -67,11 +68,11 @@ namespace ApiCatalogoJogos.Controllers.V1
     public interface IExemploTransient : IExemloGeral
     { }
 
-    public class ExemploCicloDeVda : IExemploSingleton, IExemploScoped, IExemploTransient
+    public class ExemploCicloDeVida : IExemploSingleton, IExemploScoped, IExemploTransient
     {
         private readonly Guid _guid;
 
-        public ExemploCicloDeVda()
+        public ExemploCicloDeVida()
         {
             _guid = Guid.NewGuid();
         }
